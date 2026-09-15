@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Important Question ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      overflow: hidden;
+
+      font-family: Arial, Helvetica, sans-serif;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffd6e7,
+          #ffc2d1,
+          #ffe5ec
+        );
+    }
+
+    .card {
+      width: min(90%, 500px);
+
+      padding: 40px 25px;
+
+      text-align: center;
+
+      background: rgba(255, 255, 255, 0.92);
+
+      border-radius: 25px;
+
+      box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.15);
+
+      position: relative;
+      z-index: 1;
+    }
+
+    .emoji {
+      font-size: 70px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      color: #ff4d7d;
+
+      margin-top: 0;
+      margin-bottom: 10px;
+
+      font-size: 32px;
+    }
+
+    p {
+      color: #666;
+
+      font-size: 18px;
+
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      position: relative;
+
+      height: 130px;
+    }
+
+    button {
+      border: none;
+
+      cursor: pointer;
+
+      font-size: 20px;
+
+      font-weight: bold;
+
+      border-radius: 999px;
+
+      padding: 15px 35px;
+
+      user-select: none;
+
+      -webkit-user-select: none;
+    }
+
+    #yesBtn {
+      position: absolute;
+
+      left: 30%;
+      top: 30px;
+
+      transform:
+        translateX(-50%)
+        scale(1);
+
+      transform-origin: center;
+
+      background: #ff4d7d;
+
+      color: white;
+
+      box-shadow:
+        0 6px 15px rgba(255, 77, 125, 0.35);
+
+      transition:
+        transform 0.25s ease,
+        background 0.2s ease;
+
+      z-index: 2;
+    }
+
+    #yesBtn:hover {
+      background: #ff2e68;
+    }
+
+    #noBtn {
+      position: fixed;
+
+      background: #eeeeee;
+
+      color: #444;
+
+      z-index: 10;
+
+      transition:
+        left 0.15s ease,
+        top 0.15s ease;
+
+      white-space: nowrap;
+    }
+
+    #success {
+      font-size: 27px;
+
+      color: #ff4d7d;
+
+      font-weight: bold;
+
+      line-height: 1.5;
+    }
+
+    .heart {
+      position: fixed;
+
+      top: -60px;
+
+      pointer-events: none;
+
+      z-index: 100;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card" id="questionCard">
+
+    <div class="emoji">
+      👶👶👶
+    </div>
+
+    <h1>
+      Important Question ❤️
+    </h1>
+
+    <p>
+      Would you want to have triplets with me? 🥺
+    </p>
+
+    <div class="buttons">
+
+      <button id="yesBtn">
+        YES ❤️
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <button id="noBtn">
+    No 😭
+  </button>
+
+
+  <script>
+
+    const yesBtn =
+      document.getElementById("yesBtn");
+
+    const noBtn =
+      document.getElementById("noBtn");
+
+    const card =
+      document.getElementById("questionCard");
+
+
+    let yesScale = 1;
+
+    let attempts = 0;
+
+    let canMove = true;
+
+
+
+    // -----------------------------
+    // INITIAL NO BUTTON POSITION
+    // -----------------------------
+
+    function setInitialNoPosition() {
+
+      const cardRect =
+        card.getBoundingClientRect();
+
+      const yesRect =
+        yesBtn.getBoundingClientRect();
+
+      noBtn.style.left =
+        `${yesRect.right + 30}px`;
+
+      noBtn.style.top =
+        `${yesRect.top}px`;
+
+    }
+
+
+    window.addEventListener(
+      "load",
+      setInitialNoPosition
+    );
+
+
+    window.addEventListener(
+      "resize",
+      setInitialNoPosition
+    );
+
+
+
+    // -----------------------------
+    // MOVE NO BUTTON
+    // -----------------------------
+
+    function moveNoButton() {
+
+      if (!canMove) {
+        return;
+      }
+
+
+      canMove = false;
+
+
+      setTimeout(() => {
+        canMove = true;
+      }, 130);
+
+
+      attempts++;
+
+
+
+      // -----------------------------
+      // MAKE YES BIGGER
+      // -----------------------------
+
+      yesScale += 0.15;
+
+
+      // Stop it getting ridiculously huge
+      yesScale =
+        Math.min(
+          yesScale,
+          3.2
+        );
+
+
+      yesBtn.style.transform =
+        `translateX(-50%) scale(${yesScale})`;
+
+
+
+      // -----------------------------
+      // RANDOM NO POSITION
+      // -----------------------------
+
+      const padding = 20;
+
+
+      const buttonWidth =
+        noBtn.offsetWidth;
+
+
+      const buttonHeight =
+        noBtn.offsetHeight;
+
+
+      const maxX =
+        window.innerWidth
+        - buttonWidth
+        - padding;
+
+
+      const maxY =
+        window.innerHeight
+        - buttonHeight
+        - padding;
+
+
+      let randomX;
+
+      let randomY;
+
+
+      let tries = 0;
+
+
+      // Try to avoid placing NO
+      // directly on top of YES
+      do {
+
+        randomX =
+          padding +
+          Math.random()
+          * (maxX - padding);
+
+
+        randomY =
+          padding +
+          Math.random()
+          * (maxY - padding);
+
+
+        tries++;
+
+      } while (
+        isTooCloseToYes(
+          randomX,
+          randomY,
+          buttonWidth,
+          buttonHeight
+        )
+        &&
+        tries < 20
+      );
+
+
+      noBtn.style.left =
+        `${randomX}px`;
+
+
+      noBtn.style.top =
+        `${randomY}px`;
+
+
+
+      // -----------------------------
+      // CHANGE NO BUTTON TEXT
+      // -----------------------------
+
+      const messages = [
+
+        "No 😭",
+
+        "Are you sure? 🤨",
+
+        "Think again 😌",
+
+        "Wrong button 😂",
+
+        "Nice try 😏",
+
+        "You can't escape ❤️",
+
+        "Just press YES 😭",
+
+        "Come onnn 🥺",
+
+        "👶👶👶",
+
+        "YES is getting bigger 👀",
+
+        "Why are you still trying 😭",
+
+        "Accept your destiny ❤️"
+
+      ];
+
+
+      const messageIndex =
+        Math.min(
+          attempts,
+          messages.length - 1
+        );
+
+
+      noBtn.textContent =
+        messages[messageIndex];
+
+    }
+
+
+
+    // -----------------------------
+    // KEEP NO AWAY FROM YES
+    // -----------------------------
+
+    function isTooCloseToYes(
+      x,
+      y,
+      width,
+      height
+    ) {
+
+      const yesRect =
+        yesBtn.getBoundingClientRect();
+
+
+      const noCenterX =
+        x + width / 2;
+
+
+      const noCenterY =
+        y + height / 2;
+
+
+      const yesCenterX =
+        yesRect.left
+        + yesRect.width / 2;
+
+
+      const yesCenterY =
+        yesRect.top
+        + yesRect.height / 2;
+
+
+      const dx =
+        noCenterX - yesCenterX;
+
+
+      const dy =
+        noCenterY - yesCenterY;
+
+
+      const distance =
+        Math.sqrt(
+          dx * dx + dy * dy
+        );
+
+
+      return distance < 180;
+
+    }
+
+
+
+    // -----------------------------
+    // MAC / TRACKPAD SUPPORT
+    // -----------------------------
+
+    document.addEventListener(
+      "mousemove",
+      (event) => {
+
+        const rect =
+          noBtn.getBoundingClientRect();
+
+
+        const buttonCenterX =
+          rect.left
+          + rect.width / 2;
+
+
+        const buttonCenterY =
+          rect.top
+          + rect.height / 2;
+
+
+        const distanceX =
+          event.clientX
+          - buttonCenterX;
+
+
+        const distanceY =
+          event.clientY
+          - buttonCenterY;
+
+
+        const distance =
+          Math.sqrt(
+            distanceX * distanceX
+            +
+            distanceY * distanceY
+          );
+
+
+        // No button escapes
+        // before cursor reaches it
+        if (distance < 110) {
+
+          moveNoButton();
+
+        }
+
+      }
+    );
+
+
+
+    // Backup for normal mouse hover
+    noBtn.addEventListener(
+      "mouseenter",
+      moveNoButton
+    );
+
+
+
+    // -----------------------------
+    // MOBILE / TOUCH SUPPORT
+    // -----------------------------
+
+    noBtn.addEventListener(
+      "touchstart",
+      (event) => {
+
+        event.preventDefault();
+
+        moveNoButton();
+
+      },
+      {
+        passive: false
+      }
+    );
+
+
+
+    // -----------------------------
+    // CLICK PROTECTION
+    // -----------------------------
+
+    noBtn.addEventListener(
+      "click",
+      (event) => {
+
+        event.preventDefault();
+
+        moveNoButton();
+
+      }
+    );
+
+
+
+    // -----------------------------
+    // YES BUTTON
+    // -----------------------------
+
+    yesBtn.addEventListener(
+      "click",
+      () => {
+
+        noBtn.style.display =
+          "none";
+
+
+        card.innerHTML = `
+
+          <div id="success">
+
+            🎉❤️ YAYYYYY ❤️🎉
+
+            <br><br>
+
+            Triplets it is 👶👶👶
+
+            <br><br>
+
+            I knew you'd make
+            the right choice 😌❤️
+
+          </div>
+
+        `;
+
+
+        createHearts();
+
+      }
+    );
+
+
+
+    // -----------------------------
+    // HEART ANIMATION
+    // -----------------------------
+
+    function createHearts() {
+
+      for (
+        let i = 0;
+        i < 50;
+        i++
+      ) {
+
+        const heart =
+          document.createElement(
+            "div"
+          );
+
+
+        heart.className =
+          "heart";
+
+
+        heart.innerHTML =
+          Math.random() > 0.3
+          ? "❤️"
+          : "💕";
+
+
+        heart.style.left =
+          Math.random()
+          * 100
+          + "vw";
+
+
+        heart.style.fontSize =
+          (
+            18
+            +
+            Math.random()
+            * 32
+          )
+          + "px";
+
+
+        const duration =
+          2
+          +
+          Math.random()
+          * 3;
+
+
+        heart.style.transition =
+          `
+            transform ${duration}s linear,
+            opacity ${duration}s linear
+          `;
+
+
+        document.body
+          .appendChild(heart);
+
+
+        setTimeout(
+          () => {
+
+            heart.style.transform =
+              `
+                translateY(
+                  ${window.innerHeight + 120}px
+                )
+                rotate(
+                  ${Math.random() * 600}deg
+                )
+              `;
+
+
+            heart.style.opacity =
+              "0";
+
+          },
+          50
+        );
+
+
+        setTimeout(
+          () => {
+
+            heart.remove();
+
+          },
+          duration * 1000 + 500
+        );
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>

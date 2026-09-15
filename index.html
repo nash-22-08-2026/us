@@ -1,0 +1,3186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Nash ♡</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Great+Vibes&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --cream: #fff8f4;
+      --cream2: #fff1f4;
+      --blush: #f7d6dc;
+      --pink: #efb8c3;
+      --rose: #d96c82;
+      --rose-dark: #b84d66;
+      --wine: #7b3045;
+      --brown: #5a4141;
+      --white: #ffffff;
+      --shadow: 0 20px 60px rgba(123, 48, 69, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--brown);
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 10% 12%, rgba(247,214,220,.72), transparent 23%),
+        radial-gradient(circle at 92% 25%, rgba(255,223,231,.65), transparent 22%),
+        linear-gradient(180deg, #fffaf7 0%, #fff1f4 50%, #fffaf7 100%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image:
+        radial-gradient(circle, rgba(123,48,69,.12) 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: .23;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    section {
+      padding: 100px 20px;
+      position: relative;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    .section-tag {
+      text-align: center;
+      color: var(--rose);
+      font-size: .8rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      text-align: center;
+      color: var(--wine);
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.7rem, 7vw, 5rem);
+      line-height: .95;
+      margin-bottom: 18px;
+    }
+
+    .section-subtitle {
+      max-width: 680px;
+      margin: 0 auto 50px;
+      text-align: center;
+      line-height: 1.8;
+      color: #755d62;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(920px, 92%);
+      z-index: 100;
+      padding: 10px 16px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,248,244,.78);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(217,108,130,.18);
+      box-shadow: 0 15px 40px rgba(123,48,69,.08);
+    }
+
+    .logo {
+      font-family: "Great Vibes", cursive;
+      font-size: 1.9rem;
+      color: var(--wine);
+      padding-left: 10px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      font-size: .86rem;
+      color: #694c54;
+    }
+
+    .nav-links a:hover {
+      color: var(--rose);
+    }
+
+    .nav-heart {
+      width: 40px;
+      height: 40px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--wine);
+      color: white;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .nav-heart:hover {
+      transform: scale(1.08);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding-top: 140px;
+    }
+
+    .hero-inner {
+      text-align: center;
+      max-width: 920px;
+    }
+
+    .hero-mini {
+      color: var(--rose);
+      text-transform: uppercase;
+      letter-spacing: .35em;
+      font-size: .78rem;
+      margin-bottom: 18px;
+    }
+
+    .hero-title {
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(6rem, 17vw, 11rem);
+      line-height: .82;
+      font-weight: 400;
+      color: var(--wine);
+      text-shadow: 0 15px 50px rgba(123,48,69,.12);
+    }
+
+    .hero-heart {
+      color: var(--rose);
+      display: inline-block;
+      animation: heartbeat 1.6s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      20% { transform: scale(1.13); }
+      35% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    .hero-sub {
+      font-family: "Cormorant Garamond", serif;
+      color: #6d5058;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      margin: 18px 0;
+    }
+
+    .hero-copy {
+      max-width: 640px;
+      margin: auto;
+      color: #7c656b;
+      line-height: 1.8;
+    }
+
+    .hero-names {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      margin: 34px 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--wine);
+    }
+
+    .hero-names span:nth-child(2) {
+      color: var(--rose);
+      font-size: 1.8rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 999px;
+      padding: 14px 24px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: .25s ease;
+    }
+
+    .btn-primary {
+      background: var(--wine);
+      color: white;
+      box-shadow: 0 12px 30px rgba(123,48,69,.2);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      background: var(--rose-dark);
+    }
+
+    .btn-soft {
+      background: rgba(255,255,255,.75);
+      color: var(--wine);
+      border: 1px solid rgba(123,48,69,.12);
+    }
+
+    .btn-soft:hover {
+      transform: translateY(-3px);
+      background: white;
+    }
+
+    .hero-photo {
+      margin: 65px auto 0;
+      width: min(680px, 94%);
+      min-height: 360px;
+      border-radius: 38px;
+      background: linear-gradient(135deg, #f8dce2, #fff7f3);
+      border: 12px solid rgba(255,255,255,.82);
+      box-shadow: var(--shadow);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-photo::before {
+      content: "♡";
+      position: absolute;
+      top: -80px;
+      left: -35px;
+      font-size: 15rem;
+      color: rgba(123,48,69,.06);
+    }
+
+    .photo-placeholder {
+      position: relative;
+      z-index: 2;
+      color: var(--wine);
+      text-align: center;
+    }
+
+    .photo-placeholder .big {
+      font-size: 4rem;
+      margin-bottom: 10px;
+    }
+
+    .photo-placeholder p {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.4rem;
+    }
+
+    /* COUNTER */
+
+    .counter-wrap {
+      padding-top: 0;
+    }
+
+    .counter-card {
+      max-width: 760px;
+      margin: auto;
+      padding: 40px;
+      border-radius: 32px;
+      text-align: center;
+      background: rgba(255,255,255,.76);
+      border: 1px solid rgba(217,108,130,.17);
+      box-shadow: var(--shadow);
+    }
+
+    .counter-number {
+      font-family: "Cormorant Garamond", serif;
+      color: var(--wine);
+      font-size: clamp(4rem, 10vw, 7rem);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .counter-label {
+      color: #765a62;
+      margin-top: 10px;
+    }
+
+    .counter-small {
+      color: var(--rose);
+      margin-top: 15px;
+      font-size: .9rem;
+    }
+
+    /* TIMELINE */
+
+    .timeline {
+      max-width: 840px;
+      margin: auto;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      transform: translateX(-50%);
+      background: linear-gradient(var(--pink), var(--rose), var(--pink));
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 0 45px 55px;
+    }
+
+    .timeline-item:nth-child(odd) {
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(even) {
+      margin-left: 50%;
+      text-align: left;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      top: 18px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--rose);
+      border: 5px solid var(--cream);
+      box-shadow: 0 0 0 4px rgba(217,108,130,.13);
+    }
+
+    .timeline-item:nth-child(odd) .timeline-dot {
+      right: -11px;
+    }
+
+    .timeline-item:nth-child(even) .timeline-dot {
+      left: -11px;
+    }
+
+    .timeline-card {
+      padding: 25px;
+      border-radius: 24px;
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(217,108,130,.15);
+      box-shadow: 0 14px 40px rgba(123,48,69,.08);
+      transition: .25s ease;
+    }
+
+    .timeline-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .timeline-date {
+      color: var(--rose);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: .82rem;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    .timeline-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      color: var(--wine);
+      font-size: 2rem;
+      margin-bottom: 7px;
+    }
+
+    .timeline-card p {
+      color: #765f65;
+      line-height: 1.7;
+    }
+
+    /* BOND */
+
+    .bond-card {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      background: linear-gradient(145deg, rgba(123,48,69,.97), rgba(184,77,102,.97));
+      color: white;
+      border-radius: 38px;
+      padding: 60px 35px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bond-card::before,
+    .bond-card::after {
+      content: "♡";
+      position: absolute;
+      font-size: 15rem;
+      opacity: .06;
+    }
+
+    .bond-card::before {
+      top: -120px;
+      left: -40px;
+    }
+
+    .bond-card::after {
+      right: -30px;
+      bottom: -130px;
+    }
+
+    .bond-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      line-height: 1.1;
+      margin-bottom: 22px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .bond-card p {
+      max-width: 720px;
+      margin: auto;
+      position: relative;
+      z-index: 2;
+      line-height: 1.9;
+      color: rgba(255,255,255,.88);
+    }
+
+    /* LITTLE THINGS */
+
+    .little-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .little-card {
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(217,108,130,.16);
+      border-radius: 28px;
+      padding: 30px 24px;
+      box-shadow: 0 13px 35px rgba(123,48,69,.08);
+      transition: .25s ease;
+    }
+
+    .little-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .little-icon {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+
+    .little-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      color: var(--wine);
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .little-card p {
+      line-height: 1.7;
+      color: #765f65;
+    }
+
+    .stat-number {
+      font-family: "Cormorant Garamond", serif;
+      color: var(--wine);
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
+    /* MUSIC */
+
+    .music-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .song {
+      text-align: center;
+      padding: 40px 28px;
+      border-radius: 30px;
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(217,108,130,.17);
+      box-shadow: 0 14px 40px rgba(123,48,69,.08);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: .3s ease;
+    }
+
+    .song:hover {
+      transform: translateY(-8px) scale(1.02);
+      background: rgba(255,240,244,.95);
+      box-shadow: 0 25px 60px rgba(123,48,69,.16);
+    }
+
+    .song::after {
+      content: "hover to play ♫";
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--rose);
+      font-size: .7rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      opacity: .55;
+      transition: .2s ease;
+    }
+
+    .song.playing::after {
+      content: "now playing ♫";
+      opacity: 1;
+    }
+
+    .song-emoji {
+      font-size: 3rem;
+      margin-bottom: 14px;
+      transition: .3s ease;
+    }
+
+    .song.playing .song-emoji {
+      animation: musicPulse .8s infinite alternate;
+    }
+
+    @keyframes musicPulse {
+      from {
+        transform: scale(1);
+      }
+
+      to {
+        transform: scale(1.14);
+      }
+    }
+
+    .song-label {
+      color: var(--rose);
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      font-size: .75rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .song h3 {
+      font-family: "Cormorant Garamond", serif;
+      color: var(--wine);
+      font-size: 2.2rem;
+    }
+
+    .song p {
+      margin-top: 8px;
+      color: #755d62;
+    }
+
+    .song-hint {
+      margin-top: 18px !important;
+      font-size: .75rem;
+      color: var(--rose) !important;
+      opacity: .75;
+    }
+
+    /* MEMORIES */
+
+    .memory-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      align-items: start;
+    }
+
+    .polaroid {
+      background: white;
+      padding: 12px 12px 28px;
+      border-radius: 8px;
+      box-shadow: 0 18px 40px rgba(123,48,69,.12);
+      transition: .25s ease;
+    }
+
+    .polaroid:nth-child(1) { transform: rotate(-3deg); }
+    .polaroid:nth-child(2) { transform: translateY(25px) rotate(2deg); }
+    .polaroid:nth-child(3) { transform: rotate(-1deg); }
+    .polaroid:nth-child(4) { transform: rotate(2deg); }
+    .polaroid:nth-child(5) { transform: translateY(20px) rotate(-2deg); }
+    .polaroid:nth-child(6) { transform: rotate(2deg); }
+
+    .polaroid:hover {
+      transform: translateY(-10px) rotate(0deg) scale(1.02);
+    }
+
+    .memory-photo {
+      aspect-ratio: 4 / 5;
+      background: linear-gradient(145deg, #f7d6dc, #fff4f6);
+      display: grid;
+      place-items: center;
+      font-size: 3rem;
+      overflow: hidden;
+    }
+
+    .memory-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .memory-caption {
+      text-align: center;
+      color: var(--wine);
+      font-family: "Great Vibes", cursive;
+      font-size: 1.7rem;
+      margin-top: 17px;
+    }
+
+    /* CONVERSATION */
+
+    .conversation {
+      max-width: 800px;
+      margin: auto;
+      display: grid;
+      gap: 22px;
+    }
+
+    .message {
+      max-width: 76%;
+      padding: 20px 22px;
+      border-radius: 25px;
+      line-height: 1.7;
+      box-shadow: 0 12px 30px rgba(123,48,69,.07);
+    }
+
+    .message.bear {
+      justify-self: start;
+      background: white;
+      border-bottom-left-radius: 5px;
+    }
+
+    .message.panda {
+      justify-self: end;
+      background: #f6d7df;
+      border-bottom-right-radius: 5px;
+    }
+
+    .sender {
+      color: var(--rose);
+      font-size: .78rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    /* LETTERS */
+
+    .letters-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 26px;
+    }
+
+    .letter-card {
+      width: 100%;
+      border: 1px solid rgba(217,108,130,.16);
+      border-radius: 28px;
+      padding: 30px;
+      text-align: left;
+      background: rgba(255,255,255,.76);
+      color: inherit;
+      cursor: pointer;
+      box-shadow: 0 14px 40px rgba(123,48,69,.08);
+      transition: .25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .letter-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .letter-card::after {
+      content: "💌";
+      position: absolute;
+      right: 25px;
+      bottom: 18px;
+      font-size: 3rem;
+      opacity: .2;
+    }
+
+    .letter-emoji {
+      font-size: 2.2rem;
+      margin-bottom: 13px;
+    }
+
+    .letter-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      color: var(--wine);
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .letter-card p {
+      max-width: 84%;
+      color: #7d626a;
+      line-height: 1.6;
+    }
+
+    .letter-open {
+      display: inline-block;
+      margin-top: 16px;
+      color: var(--rose);
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    /* QUOTE */
+
+    .quote-box {
+      max-width: 850px;
+      margin: auto;
+      padding: 60px 30px;
+      text-align: center;
+      background: linear-gradient(145deg, rgba(123,48,69,.96), rgba(184,77,102,.96));
+      color: white;
+      border-radius: 38px;
+      box-shadow: var(--shadow);
+    }
+
+    .quote-box p {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.2;
+    }
+
+    .quote-box small {
+      display: block;
+      margin-top: 24px;
+      opacity: .8;
+    }
+
+    /* REASONS */
+
+    .reason-box {
+      max-width: 730px;
+      margin: auto;
+      text-align: center;
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(217,108,130,.18);
+      border-radius: 34px;
+      padding: 60px 35px;
+      box-shadow: var(--shadow);
+    }
+
+    .reason-heart {
+      font-size: 3rem;
+      margin-bottom: 18px;
+    }
+
+    #reasonText {
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Cormorant Garamond", serif;
+      color: var(--wine);
+      font-size: clamp(2rem, 5vw, 3rem);
+    }
+
+    /* NICKNAMES */
+
+    .nickname-cloud {
+      max-width: 850px;
+      margin: auto;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .nickname {
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid rgba(217,108,130,.16);
+      color: var(--wine);
+      box-shadow: 0 8px 20px rgba(123,48,69,.07);
+      transition: .2s ease;
+    }
+
+    .nickname:hover {
+      transform: translateY(-4px) rotate(-2deg);
+      background: #ffe8ed;
+    }
+
+    /* FUTURE */
+
+    .future-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .future-card {
+      background: rgba(255,255,255,.76);
+      border: 1px solid rgba(217,108,130,.16);
+      border-radius: 26px;
+      padding: 32px 24px;
+      box-shadow: 0 12px 35px rgba(123,48,69,.07);
+    }
+
+    .future-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .future-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      color: var(--wine);
+      font-size: 1.7rem;
+      margin-bottom: 8px;
+    }
+
+    .future-card p {
+      color: #7c656b;
+      line-height: 1.65;
+    }
+
+    /* SECRET */
+
+    .secret-section {
+      text-align: center;
+    }
+
+    .secret-heart {
+      width: 80px;
+      height: 80px;
+      margin: 25px auto;
+      border: 0;
+      border-radius: 50%;
+      background: var(--wine);
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      box-shadow: 0 15px 35px rgba(123,48,69,.2);
+      transition: .25s ease;
+    }
+
+    .secret-heart:hover {
+      transform: scale(1.12) rotate(8deg);
+    }
+
+    .secret-message {
+      display: none;
+      max-width: 660px;
+      margin: 25px auto 0;
+      font-family: "Cormorant Garamond", serif;
+      color: var(--wine);
+      font-size: 2rem;
+      line-height: 1.4;
+    }
+
+    .secret-message.visible {
+      display: block;
+      animation: fadeUp .7s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* END */
+
+    .ending {
+      min-height: 85vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background:
+        linear-gradient(rgba(90,20,42,.76), rgba(90,20,42,.86)),
+        radial-gradient(circle at center, #d96c82, #7b3045);
+      color: white;
+    }
+
+    .ending h2 {
+      max-width: 850px;
+      margin: auto;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(3.4rem, 10vw, 7rem);
+      line-height: .98;
+      font-weight: 500;
+    }
+
+    .ending .script {
+      display: block;
+      margin-top: 20px;
+      font-family: "Great Vibes", cursive;
+      color: #ffdbe3;
+      font-size: clamp(3rem, 8vw, 5rem);
+    }
+
+    .ending p {
+      max-width: 620px;
+      margin: 30px auto 0;
+      color: rgba(255,255,255,.82);
+      line-height: 1.8;
+    }
+
+    .nash-sign {
+      margin-top: 45px;
+      font-family: "Great Vibes", cursive;
+      font-size: 3.7rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #562236;
+      color: rgba(255,255,255,.7);
+      font-size: .86rem;
+    }
+
+    /* MODAL */
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 25px;
+      background: rgba(58,27,35,.72);
+      backdrop-filter: blur(10px);
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-paper {
+      width: min(760px, 100%);
+      max-height: 84vh;
+      overflow-y: auto;
+      border-radius: 18px;
+      padding: 50px 45px;
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          #fffdf7 0,
+          #fffdf7 31px,
+          #f3e9e3 32px
+        );
+      box-shadow: 0 40px 100px rgba(0,0,0,.25);
+    }
+
+    .close-modal {
+      position: sticky;
+      top: 0;
+      display: block;
+      margin-left: auto;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--wine);
+      color: white;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    .modal-paper h2 {
+      margin: 5px 0 25px;
+      color: var(--wine);
+      font-family: "Great Vibes", cursive;
+      font-size: 3.2rem;
+      font-weight: 400;
+    }
+
+    .modal-paper p {
+      white-space: pre-line;
+      color: #5e4b50;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.25rem;
+      line-height: 1.95;
+    }
+
+    /* HEARTS */
+
+    #heart-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      overflow: hidden;
+    }
+
+    .floating-heart {
+      position: absolute;
+      font-size: 20px;
+      animation: floatHeart 2.4s ease-out forwards;
+      user-select: none;
+    }
+
+    @keyframes floatHeart {
+      0% {
+        opacity: 0;
+        transform: translateY(0) scale(.6);
+      }
+
+      15% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-130px) scale(1.4) rotate(15deg);
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 820px) {
+      .nav-links {
+        display: none;
+      }
+
+      section {
+        padding: 80px 18px;
+      }
+
+      .timeline::before {
+        left: 18px;
+      }
+
+      .timeline-item,
+      .timeline-item:nth-child(odd),
+      .timeline-item:nth-child(even) {
+        width: 100%;
+        margin-left: 0;
+        padding: 0 0 34px 50px;
+        text-align: left;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-dot,
+      .timeline-item:nth-child(even) .timeline-dot {
+        left: 7px;
+        right: auto;
+      }
+
+      .little-grid,
+      .future-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .music-card {
+        grid-template-columns: 1fr;
+      }
+
+      .letters-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .memory-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .message {
+        max-width: 88%;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero-title {
+        font-size: 7rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .memory-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .polaroid,
+      .polaroid:nth-child(n) {
+        transform: none;
+      }
+
+      .counter-card {
+        padding: 35px 20px;
+      }
+
+      .modal-paper {
+        padding: 28px 24px 45px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="heart-layer"></div>
+
+  <nav>
+
+    <a href="#home" class="logo">
+      Nash ♡
+    </a>
+
+    <div class="nav-links">
+      <a href="#story">Story</a>
+      <a href="#little-things">Our Things</a>
+      <a href="#music">Songs</a>
+      <a href="#memories">Memories</a>
+      <a href="#letters">Letters</a>
+      <a href="#future">Future</a>
+    </div>
+
+    <button
+      class="nav-heart"
+      onclick="burstHearts(window.innerWidth / 2, 100)"
+    >
+      ♡
+    </button>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-inner container">
+
+      <div class="hero-mini">
+        🐻 our little corner of the internet 🐼
+      </div>
+
+      <h1 class="hero-title">
+        Nash<span class="hero-heart">♡</span>
+      </h1>
+
+      <p class="hero-sub">
+        Somehow Bear found his Panda.
+      </p>
+
+      <p class="hero-copy">
+        We haven't known each other for years, but somehow it feels like we have.
+        Our personalities match in the weirdest little ways, we understand each
+        other naturally, and the bond between us became deeper than either of us
+        probably expected.
+      </p>
+
+      <div class="hero-names">
+        <span>Bear 🐻</span>
+        <span>♡</span>
+        <span>Panda 🐼</span>
+      </div>
+
+      <div class="hero-buttons">
+
+        <a href="#story" class="btn btn-primary">
+          Start Our Story ↓
+        </a>
+
+        <button class="btn btn-soft" onclick="randomHeartMessage()">
+          Send Panda Some Love ♡
+        </button>
+
+      </div>
+
+      <div class="hero-photo">
+
+        <div class="photo-placeholder">
+
+          <div class="big">
+            🐻 ♡ 🐼
+          </div>
+
+          <p>
+            Add your favorite picture together here
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- DAY COUNTER -->
+
+  <section class="counter-wrap">
+
+    <div class="container">
+
+      <div class="counter-card">
+
+        <div class="section-tag">
+          Since August 26, 2026
+        </div>
+
+        <div class="counter-number" id="daysTogether">
+          0
+        </div>
+
+        <div class="counter-label">
+          days since the beginning of Nash ♡
+        </div>
+
+        <div class="counter-small">
+          somehow it already feels like years.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- STORY -->
+
+  <section id="story">
+
+    <div class="container">
+
+      <div class="section-tag">
+        once upon a very unexpected august
+      </div>
+
+      <h2 class="section-title">
+        Our Story
+      </h2>
+
+      <p class="section-subtitle">
+        Some stories take years to begin. Ours apparently needed about two days
+        to go from strangers to “I love you.”
+      </p>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+
+          <span class="timeline-dot"></span>
+
+          <div class="timeline-card">
+
+            <div class="timeline-date">
+              26 August 2026
+            </div>
+
+            <h3>
+              The Day We Met ♡
+            </h3>
+
+            <p>
+              A completely normal day that somehow became the beginning of
+              everything.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+          <span class="timeline-dot"></span>
+
+          <div class="timeline-card">
+
+            <div class="timeline-date">
+              26 August 2026
+            </div>
+
+            <h3>
+              First “I Like You” 🥹
+            </h3>
+
+            <p>
+              Yes. The same day. Apparently Bear and Panda did not believe in
+              wasting time.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+          <span class="timeline-dot"></span>
+
+          <div class="timeline-card">
+
+            <div class="timeline-date">
+              28 August 2026
+            </div>
+
+            <h3>
+              First “I Love You” ❤️
+            </h3>
+
+            <p>
+              Only two days later, but somehow it already felt natural.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+          <span class="timeline-dot"></span>
+
+          <div class="timeline-card">
+
+            <div class="timeline-date">
+              now & everything after
+            </div>
+
+            <h3>
+              Deeply, Ridiculously Us ♾️
+            </h3>
+
+            <p>
+              Long calls, daily rituals, games, music, matching personalities
+              and a bond that somehow feels much older than the calendar says.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- BOND -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="bond-card">
+
+        <h3>
+          It feels like we've known each other for years.
+        </h3>
+
+        <p>
+          There's something strangely familiar about us. The way our
+          personalities overlap, the way we understand each other's moods,
+          the way conversations never feel forced, and the way we can spend
+          hours together without getting tired of each other. The bond between
+          us became deep very quickly, but somehow it doesn't feel rushed.
+          It just feels natural. Like meeting someone new who somehow already
+          feels like home.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- OUR LITTLE THINGS -->
+
+  <section id="little-things">
+
+    <div class="container">
+
+      <div class="section-tag">
+        the things that are very us
+      </div>
+
+      <h2 class="section-title">
+        Our Little Things
+      </h2>
+
+      <p class="section-subtitle">
+        The random habits, games and tiny rituals that probably don't mean
+        anything to anyone else but somehow mean a lot to us.
+      </p>
+
+      <div class="little-grid">
+
+        <div class="little-card">
+
+          <div class="little-icon">
+            ✨
+          </div>
+
+          <h3>
+            Co–Star Every Day
+          </h3>
+
+          <p>
+            We love checking our daily Co–Star updates together and seeing what
+            the universe has apparently decided to say about us that day.
+          </p>
+
+        </div>
+
+
+        <div class="little-card">
+
+          <div class="little-icon">
+            👑
+          </div>
+
+          <h3>
+            Clash Royale 2v2
+          </h3>
+
+          <p>
+            One of our favorite things is playing 2v2 together because somehow
+            we're genuinely in sync. Even in Clash Royale, Bear and Panda work
+            better as a team.
+          </p>
+
+        </div>
+
+
+        <div class="little-card">
+
+          <div class="little-icon">
+            ☎️
+          </div>
+
+          <div class="stat-number">
+            12.5
+          </div>
+
+          <h3>
+            Hours
+          </h3>
+
+          <p>
+            Our longest call so far. Somehow 12 and a half hours of talking
+            still wasn't enough.
+          </p>
+
+        </div>
+
+
+        <div class="little-card">
+
+          <div class="little-icon">
+            🧠
+          </div>
+
+          <h3>
+            Same Brain Sometimes
+          </h3>
+
+          <p>
+            A lot of our personality traits are ridiculously similar, which
+            probably explains why we understand each other so naturally.
+          </p>
+
+        </div>
+
+
+        <div class="little-card">
+
+          <div class="little-icon">
+            🫂
+          </div>
+
+          <h3>
+            That Familiar Feeling
+          </h3>
+
+          <p>
+            Even though we met recently, being together doesn't feel new.
+            There's a comfort between us that feels like it has been there
+            for years.
+          </p>
+
+        </div>
+
+
+        <div class="little-card">
+
+          <div class="little-icon">
+            ♡
+          </div>
+
+          <h3>
+            Our Connection
+          </h3>
+
+          <p>
+            We connect emotionally, mentally and in all the stupid little ways
+            too. Somehow the serious conversations and the completely chaotic
+            ones both feel equally important.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- MUSIC -->
+
+  <section id="music">
+
+    <div class="container">
+
+      <div class="section-tag">
+        the soundtrack to nash
+      </div>
+
+      <h2 class="section-title">
+        Our Songs
+      </h2>
+
+      <p class="section-subtitle">
+        Hover over a song to hear it. Because some songs eventually stop being
+        just songs and become part of your story.
+      </p>
+
+      <div class="music-card">
+
+        <!-- PAPER RINGS -->
+
+        <div
+          class="song"
+          onmouseenter="playSong('paperRingsAudio', this)"
+          onmouseleave="pauseSong('paperRingsAudio', this)"
+          ontouchstart="toggleSong('paperRingsAudio', this)"
+        >
+
+          <div class="song-emoji">
+            💍
+          </div>
+
+          <div class="song-label">
+            Mutual Favorite Song
+          </div>
+
+          <h3>
+            Paper Rings
+          </h3>
+
+          <p>
+            Taylor Swift
+          </p>
+
+          <p class="song-hint">
+            hover to play ♫
+          </p>
+
+        </div>
+
+
+        <!-- PERFECT -->
+
+        <div
+          class="song"
+          onmouseenter="playSong('perfectAudio', this)"
+          onmouseleave="pauseSong('perfectAudio', this)"
+          ontouchstart="toggleSong('perfectAudio', this)"
+        >
+
+          <div class="song-emoji">
+            ♡
+          </div>
+
+          <div class="song-label">
+            Our Theme Song
+          </div>
+
+          <h3>
+            Perfect
+          </h3>
+
+          <p>
+            Ed Sheeran
+          </p>
+
+          <p class="song-hint">
+            hover to play ♫
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- AUDIO FILES -->
+
+      <audio
+        id="paperRingsAudio"
+        src="music/paper-rings.mp3"
+        preload="metadata"
+      ></audio>
+
+      <audio
+        id="perfectAudio"
+        src="music/perfect.mp3"
+        preload="metadata"
+      ></audio>
+
+    </div>
+
+  </section>
+
+
+  <!-- QUOTE -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="quote-box">
+
+        <p>
+          “Idk how I randomly met u but maybe it’s fate or maybe God answered
+          all my prayers and sent the sweetest guy to me.”
+        </p>
+
+        <small>
+          — Panda 🐼♡
+        </small>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- MEMORIES -->
+
+  <section id="memories">
+
+    <div class="container">
+
+      <div class="section-tag">
+        little moments that became big memories
+      </div>
+
+      <h2 class="section-title">
+        Our Memories
+      </h2>
+
+      <p class="section-subtitle">
+        Replace these with your pictures as you collect more memories together.
+      </p>
+
+      <div class="memory-grid">
+
+        <div class="polaroid">
+
+          <div class="memory-photo">
+            📷
+          </div>
+
+          <div class="memory-caption">
+            where it all began ♡
+          </div>
+
+        </div>
+
+
+        <div class="polaroid">
+
+          <div class="memory-photo">
+            📷
+          </div>
+
+          <div class="memory-caption">
+            my favorite girl
+          </div>
+
+        </div>
+
+
+        <div class="polaroid">
+
+          <div class="memory-photo">
+            📷
+          </div>
+
+          <div class="memory-caption">
+            Bear & Panda 🐻🐼
+          </div>
+
+        </div>
+
+
+        <div class="polaroid">
+
+          <div class="memory-photo">
+            📷
+          </div>
+
+          <div class="memory-caption">
+            another little memory
+          </div>
+
+        </div>
+
+
+        <div class="polaroid">
+
+          <div class="memory-photo">
+            📷
+          </div>
+
+          <div class="memory-caption">
+            forever keeping this one
+          </div>
+
+        </div>
+
+
+        <div class="polaroid">
+
+          <div class="memory-photo">
+            📷
+          </div>
+
+          <div class="memory-caption">
+            more memories loading...
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONVERSATIONS -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-tag">
+        things we told each other
+      </div>
+
+      <h2 class="section-title">
+        Us, In Our Own Words
+      </h2>
+
+      <p class="section-subtitle">
+        Sometimes the messages explain the relationship better than anything
+        else could.
+      </p>
+
+      <div class="conversation">
+
+        <div class="message panda">
+
+          <div class="sender">
+            Panda 🐼
+          </div>
+
+          Yes baby ur treating me right oki 🥺💋🫶🏻🫂!!!! Ur my rock my best
+          friend and the best boyfieeee 💓😙
+
+          <br><br>
+
+          Even im scared to lose u but i promise u I’ll never break ur heart
+          💓♥️🫂♾️ ! And love u always and forever
+
+        </div>
+
+
+        <div class="message bear">
+
+          <div class="sender">
+            Bear 🐻
+          </div>
+
+          You always bring joy to my heart!! I honestly cant imagine living
+          without you now or in the future at all ❤️😗🐼💓🔥🤪
+
+        </div>
+
+
+        <div class="message panda">
+
+          <div class="sender">
+            Panda 🐼
+          </div>
+
+          Ur my home my heart my love my everything atp I can’t lose u no matter
+          what ♥️
+
+        </div>
+
+
+        <div class="message bear">
+
+          <div class="sender">
+            Bear 🐻
+          </div>
+
+          I don't know how it feels like I've known you forever when technically
+          I haven't... but I kind of love that it does.
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- LETTERS -->
+
+  <section id="letters">
+
+    <div class="container">
+
+      <div class="section-tag">
+        open when you want to feel loved
+      </div>
+
+      <h2 class="section-title">
+        Letters to You
+      </h2>
+
+      <p class="section-subtitle">
+        Click each envelope to open a little piece of us.
+      </p>
+
+      <div class="letters-grid">
+
+        <button
+          class="letter-card"
+          onclick="openLetter('sorryLetter')"
+        >
+
+          <div class="letter-emoji">
+            💌
+          </div>
+
+          <h3>
+            Dear Panda
+          </h3>
+
+          <p>
+            A letter about honesty, mistakes, and why what we have means so much
+            to me.
+          </p>
+
+          <span class="letter-open">
+            Open letter →
+          </span>
+
+        </button>
+
+
+        <button
+          class="letter-card"
+          onclick="openLetter('pandaReply')"
+        >
+
+          <div class="letter-emoji">
+            🐼
+          </div>
+
+          <h3>
+            I Trust You
+          </h3>
+
+          <p>
+            Panda's message after Bear needed forgiveness and reassurance.
+          </p>
+
+          <span class="letter-open">
+            Open message →
+          </span>
+
+        </button>
+
+
+        <button
+          class="letter-card"
+          onclick="openLetter('futureWife')"
+        >
+
+          <div class="letter-emoji">
+            🐻
+          </div>
+
+          <h3>
+            Dear Future Wife
+          </h3>
+
+          <p>
+            A letter about love, safety, and finally feeling like you don't have
+            to earn someone's heart.
+          </p>
+
+          <span class="letter-open">
+            Open letter →
+          </span>
+
+        </button>
+
+
+        <button
+          class="letter-card"
+          onclick="openLetter('futureWifeReply')"
+        >
+
+          <div class="letter-emoji">
+            ♡
+          </div>
+
+          <h3>
+            You Already Have My Love
+          </h3>
+
+          <p>
+            Panda's answer to Bear's letter about love, home and feeling safe.
+          </p>
+
+          <span class="letter-open">
+            Open message →
+          </span>
+
+        </button>
+
+
+        <button
+          class="letter-card"
+          onclick="openLetter('futureHusband')"
+        >
+
+          <div class="letter-emoji">
+            💍
+          </div>
+
+          <h3>
+            Dear Future Husband
+          </h3>
+
+          <p>
+            Panda's promise about patience, loyalty, effort, honesty and forever.
+          </p>
+
+          <span class="letter-open">
+            Open letter →
+          </span>
+
+        </button>
+
+
+        <button
+          class="letter-card"
+          onclick="openLetter('crazyNickname')"
+        >
+
+          <div class="letter-emoji">
+            😭
+          </div>
+
+          <h3>
+            A Very Serious Love Letter
+          </h3>
+
+          <p>
+            To baby panda therapist boobalicious coochie pookie bubbie teacher...
+          </p>
+
+          <span class="letter-open">
+            You need to open this →
+          </span>
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- QUOTE -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="quote-box">
+
+        <p>
+          “You don't have to earn my love baby.<br>
+          You already have it.”
+        </p>
+
+        <small>
+          — Panda 🐼
+        </small>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- WHY I LOVE YOU -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-tag">
+        just in case you ever forget
+      </div>
+
+      <h2 class="section-title">
+        Why I Love You
+      </h2>
+
+      <p class="section-subtitle">
+        One button. A lot of reasons.
+      </p>
+
+      <div class="reason-box">
+
+        <div class="reason-heart">
+          ♡
+        </div>
+
+        <div id="reasonText">
+          You somehow make ordinary days feel important.
+        </div>
+
+        <button
+          class="btn btn-primary"
+          onclick="newReason()"
+        >
+          Tell Me Another Reason ♡
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- NICKNAMES -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="section-tag">
+        the extremely normal names we call each other
+      </div>
+
+      <h2 class="section-title">
+        Our Romantic Vocabulary
+      </h2>
+
+      <p class="section-subtitle">
+        Somehow all of these refer to the same two people.
+      </p>
+
+      <div class="nickname-cloud">
+
+        <span class="nickname">🐼 Panda</span>
+        <span class="nickname">🐻 Bear</span>
+        <span class="nickname">Baby</span>
+        <span class="nickname">Baby Bear</span>
+        <span class="nickname">Bear Bear</span>
+        <span class="nickname">Hubby Pie</span>
+        <span class="nickname">Pookie</span>
+        <span class="nickname">Bubbie</span>
+        <span class="nickname">Therapist 😭</span>
+        <span class="nickname">Teacher</span>
+        <span class="nickname">Boobalicious 💀</span>
+        <span class="nickname">Coochie Pookie 😭</span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FUTURE -->
+
+  <section id="future">
+
+    <div class="container">
+
+      <div class="section-tag">
+        things we haven't lived yet
+      </div>
+
+      <h2 class="section-title">
+        Future Us
+      </h2>
+
+      <p class="section-subtitle">
+        A tiny list of all the chapters Nash hasn't written yet.
+      </p>
+
+      <div class="future-grid">
+
+        <div class="future-card">
+
+          <div class="future-icon">
+            ✈️
+          </div>
+
+          <h3>
+            Travel Together
+          </h3>
+
+          <p>
+            New places, way too many pictures, random arguments over directions,
+            and a lot of memories.
+          </p>
+
+        </div>
+
+
+        <div class="future-card">
+
+          <div class="future-icon">
+            🏡
+          </div>
+
+          <h3>
+            Our Home
+          </h3>
+
+          <p>
+            A place that feels safe, warm, chaotic, comfortable and completely
+            ours.
+          </p>
+
+        </div>
+
+
+        <div class="future-card">
+
+          <div class="future-icon">
+            🎮
+          </div>
+
+          <h3>
+            More 2v2 Wins
+          </h3>
+
+          <p>
+            Because obviously the future includes more Clash Royale victories
+            caused by our elite relationship synchronization.
+          </p>
+
+        </div>
+
+
+        <div class="future-card">
+
+          <div class="future-icon">
+            🎧
+          </div>
+
+          <h3>
+            More Songs
+          </h3>
+
+          <p>
+            More songs that slowly stop being normal songs and somehow become
+            ours.
+          </p>
+
+        </div>
+
+
+        <div class="future-card">
+
+          <div class="future-icon">
+            🫂
+          </div>
+
+          <h3>
+            December
+          </h3>
+
+          <p>
+            The hugs, care and love Panda promised Bear when they finally get to
+            meet again.
+          </p>
+
+        </div>
+
+
+        <div class="future-card">
+
+          <div class="future-icon">
+            ♾️
+          </div>
+
+          <h3>
+            Choosing Each Other
+          </h3>
+
+          <p>
+            Through happy days, difficult conversations, mistakes, laughter and
+            everything in between.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SECRET -->
+
+  <section class="secret-section">
+
+    <div class="container">
+
+      <div class="section-tag">
+        psst...
+      </div>
+
+      <h2 class="section-title">
+        There's One More Thing
+      </h2>
+
+      <p class="section-subtitle">
+        Panda, click the heart. Obviously.
+      </p>
+
+      <button
+        class="secret-heart"
+        onclick="revealSecret(event)"
+      >
+        ♡
+      </button>
+
+      <div
+        class="secret-message"
+        id="secretMessage"
+      >
+
+        If somehow we lived this entire life again,
+        I'd still hope August 26 somehow leads me back to you.
+
+        <br><br>
+
+        And if another conversation somehow turned into 12.5 hours...
+
+        <br><br>
+
+        I still wouldn't want to hang up.
+
+        <br><br>
+
+        🐻 ♡ 🐼
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ENDING -->
+
+  <section class="ending">
+
+    <div class="container">
+
+      <h2>
+
+        After every call,<br>
+        every game,<br>
+        every song,<br>
+        every laugh,<br>
+        every little moment...
+
+        <span class="script">
+          I'd still choose you.
+        </span>
+
+      </h2>
+
+      <p>
+        It hasn't been years. Somehow it just feels like it has.
+        And maybe that's one of my favorite things about us.
+      </p>
+
+      <div class="nash-sign">
+        N + D = Nash ♾️
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+    Made with an unreasonable amount of love by Bear 🐻 for Panda 🐼 ♡
+  </footer>
+
+
+  <!-- LETTER MODAL -->
+
+  <div
+    class="modal"
+    id="letterModal"
+    onclick="modalBackgroundClose(event)"
+  >
+
+    <div class="modal-paper">
+
+      <button
+        class="close-modal"
+        onclick="closeLetter()"
+      >
+        ×
+      </button>
+
+      <h2 id="modalTitle"></h2>
+
+      <p id="modalBody"></p>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    /* =========================================
+       DAYS TOGETHER
+    ========================================= */
+
+    function updateDaysTogether() {
+
+      const startDate =
+        new Date("2026-08-26T00:00:00");
+
+      const today =
+        new Date();
+
+      const difference =
+        today - startDate;
+
+      const days =
+        Math.max(
+          0,
+          Math.floor(
+            difference /
+            (1000 * 60 * 60 * 24)
+          )
+        );
+
+      document
+        .getElementById("daysTogether")
+        .textContent = days;
+
+    }
+
+    updateDaysTogether();
+
+
+    /* =========================================
+       MUSIC
+    ========================================= */
+
+    let currentAudio = null;
+    let currentSongCard = null;
+    let userHasInteracted = false;
+
+
+    document.addEventListener(
+      "pointerdown",
+      function () {
+
+        userHasInteracted = true;
+
+      },
+      { once: true }
+    );
+
+
+    function stopCurrentSong() {
+
+      if (currentAudio) {
+
+        currentAudio.pause();
+
+        currentAudio.currentTime = 0;
+
+      }
+
+      if (currentSongCard) {
+
+        currentSongCard
+          .classList
+          .remove("playing");
+
+      }
+
+      currentAudio = null;
+      currentSongCard = null;
+
+    }
+
+
+    function playSong(audioId, songCard) {
+
+      const audio =
+        document.getElementById(audioId);
+
+      if (!audio) {
+        return;
+      }
+
+      if (
+        currentAudio &&
+        currentAudio !== audio
+      ) {
+
+        stopCurrentSong();
+
+      }
+
+      currentAudio = audio;
+      currentSongCard = songCard;
+
+      audio.volume = 0.45;
+
+      const playPromise =
+        audio.play();
+
+      if (
+        playPromise !== undefined
+      ) {
+
+        playPromise
+          .then(() => {
+
+            songCard
+              .classList
+              .add("playing");
+
+          })
+          .catch(() => {
+
+            /*
+              Some browsers require the user
+              to click/tap once before audio
+              can play.
+            */
+
+          });
+
+      }
+
+    }
+
+
+    function pauseSong(audioId, songCard) {
+
+      const audio =
+        document.getElementById(audioId);
+
+      if (!audio) {
+        return;
+      }
+
+      audio.pause();
+
+      audio.currentTime = 0;
+
+      songCard
+        .classList
+        .remove("playing");
+
+      if (currentAudio === audio) {
+
+        currentAudio = null;
+        currentSongCard = null;
+
+      }
+
+    }
+
+
+    function toggleSong(audioId, songCard) {
+
+      const audio =
+        document.getElementById(audioId);
+
+      if (!audio) {
+        return;
+      }
+
+      if (!audio.paused) {
+
+        pauseSong(
+          audioId,
+          songCard
+        );
+
+      }
+      else {
+
+        stopCurrentSong();
+
+        playSong(
+          audioId,
+          songCard
+        );
+
+      }
+
+    }
+
+
+    /* =========================================
+       LETTERS
+    ========================================= */
+
+    const letters = {
+
+      sorryLetter: {
+
+        title: "Dear Panda ♡",
+
+        body: `I’m really sorry for not telling you earlier. I should have been completely open with you from the beginning, especially because of how much you’ve started to mean to me.
+
+Meeting you was something I never expected, and the connection we have genuinely feels rare to me. We’re so similar in the weirdest little ways, and being with you just feels natural, kinda like home.
+
+I feel even worse that I told you when you were already having a bad day. I never wanted to hurt you, make you overthink, or make you question my intentions.
+
+I can’t change how I handled it, but I can promise to be more open with you going forward. There’s nothing else I’m hiding from you, and I want to always be honest with you, even when something is difficult to talk about.
+
+I really care about you, and I’m truly sorry.
+
+I love you. I hope you can forgive me. I’ll keep trying to be the best version of myself, both for me and for us, because what we have means so much to me.
+
+Love,
+Bear ❤️`
+
+      },
+
+
+      pandaReply: {
+
+        title: "From Panda 🐼",
+
+        body: `I love u a lot baby bear 🥰🥰🥰!!!! It’s ok baby I missss u sooo much and u mean everything to me my love ur the best person I’ve ever met the sweetest 🥺🥺🥺 I was hurt but I’m ok thike dw bubs I’m over that fight now !!!! And I trust u ok 🫂🫂🫂 so dw about that ok my love !!! I can’t wait to meet u in December and give u all my love and care ♥️♥️♥️!!!! 🫂🫂🫂`
+
+      },
+
+
+      futureWife: {
+
+        title: "Dear Future Wife",
+
+        body: `Before you know the man I am, I hope you’ll understand the little boy who grew up believing he had to earn love.
+
+I became the one who tried to make everyone happy. I apologized even when I wasn’t wrong. I gave more than I had because I was afraid that if I wasn’t useful, I wouldn’t be enough. For a long time, I confused being needed with being loved.
+
+So if one day I overthink your silence or ask, “Are you okay?” more than once, it’s not because I don’t trust you. It’s because a part of me still worries that love can disappear without warning.
+
+I don’t need expensive gifts or grand promises. I just hope we build a relationship where love isn’t something we have to earn every day. A place where we can make mistakes, have difficult conversations, and still choose each other with the same kindness.
+
+I promise I’ll never make you feel like you have to become someone else to deserve my love. I only hope you’ll remind me that I don’t have to become someone else to deserve yours.
+
+Because after spending so much of my life trying to earn love... My biggest dream is simply to come home to a love that lets me rest.
+
+Yours,
+Bear Bear!`
+
+      },
+
+
+      futureWifeReply: {
+
+        title: "You Already Have My Love ♡",
+
+        body: `My baby I’m always gonna be understanding okie dw and I’ll give u unconditional love my darling and even if we make mistakes we’ll deal with it that’s what a relationship is okie baby . And I love u just the way u are I don’t wanna change u bubs . And even I want u to accept me the way I am but if I do something that hurts u pls tell me ok because I never ever wanna hurt my baby 🥺🥺🥺 ur my home my heart my love my everything atp I can’t lose u no matter what . And I promise u I’m gonna make this work for the both of us ♥️♥️♥️, ur the most important person in my life and u don’t have to earn my love baby u already have it . I gave u my heart and it’ll be yours forever ♥️`
+
+      },
+
+
+      futureHusband: {
+
+        title: "Dear Future Husband",
+
+        body: `I love you so much! I’ve never felt this close to anyone ever in my life… remember that I’ve given you my heart and you mean the world to me, please don’t break my heart ❤️… and I’ve never ever felt this feeling that I’m feeling. I’m ready to do anything and everything for you to make this work, I know we both will have to make compromises, but I’m ready to do that because I know I won’t ever feel this with anyone else, my baby… I see a future with you and I never imagined I’d fall in love ever again, but you made me feel safe and I want to be with you no matter what… just promise me you’ll put in the patience, loyalty, and effort, and if you ever feel like I’m asking for too much, just let me know . I want to be your future wifey and the mother of our kids. I want to experience everything with you, the sadness, the happiness, the good, the bad, everything.
+
+No matter how far you are, you’re the closest to my heart and I want to be yours forever ♾️….
+
+Please just always be honest with me 🫂🫂🫂`
+
+      },
+
+
+      crazyNickname: {
+
+        title: "To My Very Normal Girlfriend 😛",
+
+        body: `To my baby panda therapist boobalicious coochie pookie bubbie teacher 😛😛👅👅
+
+SOMETIMES IT'S HARD TO FIND WORDS TO TELL YOU HOW MUCH YOU MEAN TO ME. YOU ARE ALWAYS ON MY MIND AND IN MY HEART. YOUR SMILE BRIGHTENS MY DAY. YOUR ARMS WRAP ME IN COMFORT, YOUR HEART SPEAKS TO MY HEART. I'M GRATEFUL THAT YOU ARE MY PARTNER IN THIS CRAZY LIFE. THANK YOU FOR YOUR KIND HEART, AND FOR SHARING IT WITH ME`
+
+      }
+
+    };
+
+
+    function openLetter(letterId) {
+
+      stopCurrentSong();
+
+      const letter =
+        letters[letterId];
+
+      document
+        .getElementById("modalTitle")
+        .textContent =
+        letter.title;
+
+      document
+        .getElementById("modalBody")
+        .textContent =
+        letter.body;
+
+      document
+        .getElementById("letterModal")
+        .classList
+        .add("active");
+
+      document.body.style.overflow =
+        "hidden";
+
+      burstHearts(
+        window.innerWidth / 2,
+        window.innerHeight / 2
+      );
+
+    }
+
+
+    function closeLetter() {
+
+      document
+        .getElementById("letterModal")
+        .classList
+        .remove("active");
+
+      document.body.style.overflow =
+        "";
+
+    }
+
+
+    function modalBackgroundClose(event) {
+
+      if (
+        event.target.id ===
+        "letterModal"
+      ) {
+
+        closeLetter();
+
+      }
+
+    }
+
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (event.key === "Escape") {
+
+          closeLetter();
+
+        }
+
+      }
+    );
+
+
+    /* =========================================
+       REASONS
+    ========================================= */
+
+    const reasons = [
+
+      "You somehow make ordinary days feel important.",
+
+      "Talking to you never feels forced.",
+
+      "It somehow feels like I've known you for years.",
+
+      "Our personalities match in the weirdest and best ways.",
+
+      "Even playing Clash Royale with you somehow feels romantic 😭",
+
+      "I love how in sync we are when we play 2v2 together.",
+
+      "I love that checking Co–Star became one of our little daily things.",
+
+      "We can talk for 12.5 hours and somehow still have more to say.",
+
+      "You make me feel understood.",
+
+      "You make me feel cared for even when you're far away.",
+
+      "You're my Panda. That's already enough of a reason.",
+
+      "You make me excited about a future I haven't lived yet.",
+
+      "You feel like my girlfriend and my best friend at the same time.",
+
+      "Somehow even the stupid conversations become memories with you.",
+
+      "You make our relationship feel safe, deep and fun at the same time.",
+
+      "Because somehow talking to you feels like coming home.",
+
+      "Because there is only one Panda I want. 🐼",
+
+      "Because you're you. And that's the part I love most."
+
+    ];
+
+
+    let lastReason = -1;
+
+
+    function newReason() {
+
+      let index;
+
+      do {
+
+        index =
+          Math.floor(
+            Math.random() *
+            reasons.length
+          );
+
+      }
+
+      while (
+        index === lastReason &&
+        reasons.length > 1
+      );
+
+
+      lastReason = index;
+
+
+      const text =
+        document
+          .getElementById("reasonText");
+
+
+      text.style.opacity =
+        "0";
+
+      text.style.transform =
+        "translateY(8px)";
+
+
+      setTimeout(
+        function() {
+
+          text.textContent =
+            reasons[index];
+
+          text.style.transition =
+            ".4s ease";
+
+          text.style.opacity =
+            "1";
+
+          text.style.transform =
+            "translateY(0)";
+
+        },
+        180
+      );
+
+
+      burstHearts(
+        window.innerWidth / 2,
+        window.innerHeight / 2
+      );
+
+    }
+
+
+    /* =========================================
+       HEARTS
+    ========================================= */
+
+    const heartChoices = [
+
+      "♡",
+      "♥",
+      "💗",
+      "💕",
+      "🐼",
+      "🐻"
+
+    ];
+
+
+    function createHeart(x, y) {
+
+      const heart =
+        document
+          .createElement("span");
+
+      heart.className =
+        "floating-heart";
+
+      heart.textContent =
+        heartChoices[
+          Math.floor(
+            Math.random() *
+            heartChoices.length
+          )
+        ];
+
+
+      heart.style.left =
+        (
+          x +
+          Math.random() * 60 -
+          30
+        ) + "px";
+
+
+      heart.style.top =
+        (
+          y +
+          Math.random() * 30 -
+          15
+        ) + "px";
+
+
+      heart.style.animationDuration =
+        (
+          1.8 +
+          Math.random() * 1.2
+        ) + "s";
+
+
+      document
+        .getElementById("heart-layer")
+        .appendChild(heart);
+
+
+      setTimeout(
+        function() {
+
+          heart.remove();
+
+        },
+        3200
+      );
+
+    }
+
+
+    function burstHearts(x, y) {
+
+      for (
+        let i = 0;
+        i < 12;
+        i++
+      ) {
+
+        setTimeout(
+          function() {
+
+            createHeart(x, y);
+
+          },
+          i * 55
+        );
+
+      }
+
+    }
+
+
+    document.addEventListener(
+      "click",
+      function(event) {
+
+        if (
+          !event.target.closest("button") &&
+          !event.target.closest("a")
+        ) {
+
+          if (
+            Math.random() > .35
+          ) {
+
+            createHeart(
+              event.clientX,
+              event.clientY
+            );
+
+          }
+
+        }
+
+      }
+    );
+
+
+    /* =========================================
+       SECRET
+    ========================================= */
+
+    function revealSecret(event) {
+
+      document
+        .getElementById("secretMessage")
+        .classList
+        .add("visible");
+
+
+      const rect =
+        event.currentTarget
+          .getBoundingClientRect();
+
+
+      burstHearts(
+
+        rect.left +
+        rect.width / 2,
+
+        rect.top +
+        rect.height / 2
+
+      );
+
+    }
+
+
+    /* =========================================
+       RANDOM LOVE MESSAGE
+    ========================================= */
+
+    const tinyMessages = [
+
+      "Bear loves Panda ♡",
+
+      "You're stuck with me now 🐻",
+
+      "Panda supremacy 🐼",
+
+      "Nash forever ♾️",
+
+      "Still choosing you.",
+
+      "August 26 changed everything.",
+
+      "12.5 hours still wasn't enough ☎️",
+
+      "Our 2v2 chemistry is elite 👑",
+
+      "Check Co–Star with me ✨",
+
+      "Paper Rings for us 💍",
+
+      "Perfect is still ours ♡",
+
+      "My home has a 🐼 in it."
+
+    ];
+
+
+    function randomHeartMessage() {
+
+      const text =
+
+        tinyMessages[
+          Math.floor(
+            Math.random() *
+            tinyMessages.length
+          )
+        ];
+
+
+      const bubble =
+        document
+          .createElement("div");
+
+
+      bubble.textContent =
+        text;
+
+
+      bubble.style.position =
+        "fixed";
+
+      bubble.style.left =
+        "50%";
+
+      bubble.style.bottom =
+        "35px";
+
+      bubble.style.transform =
+        "translateX(-50%)";
+
+      bubble.style.padding =
+        "14px 22px";
+
+      bubble.style.borderRadius =
+        "999px";
+
+      bubble.style.background =
+        "#7b3045";
+
+      bubble.style.color =
+        "white";
+
+      bubble.style.zIndex =
+        "2000";
+
+      bubble.style.boxShadow =
+        "0 15px 40px rgba(0,0,0,.18)";
+
+      bubble.style.transition =
+        ".4s ease";
+
+
+      document.body
+        .appendChild(bubble);
+
+
+      burstHearts(
+        window.innerWidth / 2,
+        window.innerHeight - 80
+      );
+
+
+      setTimeout(
+        function() {
+
+          bubble.style.opacity =
+            "0";
+
+          bubble.style.transform =
+            "translateX(-50%) translateY(10px)";
+
+        },
+        1800
+      );
+
+
+      setTimeout(
+        function() {
+
+          bubble.remove();
+
+        },
+        2300
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>
